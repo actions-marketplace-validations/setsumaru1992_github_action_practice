@@ -10,4 +10,20 @@ jobs:
   use-git-command:
     runs-on: ubuntu-latest
     steps:
+      # ジョブ間では基本的に実行環境はリセットされるので、それぞれでcheckoutとかそれに類すること（共通の初期化作業など）をする必要がある
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - run: git status
+  use-ruby-script:
+    runs-on: ubuntu-
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+      - run: ruby -e 'p(hoge)'
+      - run: |
+          ruby -e 'p hoge'
+          ruby -e 'p hoge in multi line'
+        
+
