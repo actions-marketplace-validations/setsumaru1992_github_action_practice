@@ -25,5 +25,8 @@ jobs:
       - run: |
           ruby -e "p('hoge')"
           ruby -e "p 'hoge in multi line'"
-        
+  use-partial-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/partial_action
 

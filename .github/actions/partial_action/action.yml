@@ -1,0 +1,7 @@
+name: 'partial_action'
+description: 'partial action'
+runs:
+  using: "composite"
+  steps:
+    - run: echo "executed in partial"
+      shell: bash
