@@ -6,6 +6,8 @@ runs:
     - run: echo "execute public action"
       shell: bash
     - uses: actions/checkout@v3
-    - run: ls -la
-    - uses: ./.github/actions/partial_action
-    - run: git log --oneline
+    # TODO: チェックアウトはこのリポジトリではなく実行元リポジトリのソースを取ってくるため、
+    # カスタムアクションリポジトリのパーシャルファイルを利用する際は工夫必要
+    # - run: ls -la
+    # - uses: ./.github/actions/partial_action
+    # - run: git log --oneline
