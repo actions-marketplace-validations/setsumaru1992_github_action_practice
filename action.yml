@@ -6,4 +6,6 @@ runs:
     - run: echo "execute public action"
       shell: bash
     - uses: actions/checkout@v3
+    - run: ls -la
+    - uses: ./.github/actions/partial_action
     - run: git log --oneline

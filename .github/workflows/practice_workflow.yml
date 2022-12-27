@@ -31,6 +31,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/partial_action
+  use-published-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: setsumaru1992/github_action_practice@v0.0.1
   create-output:
     runs-on: ubuntu-latest
     outputs:
