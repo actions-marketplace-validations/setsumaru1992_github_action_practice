@@ -30,4 +30,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/partial_action
-
+  create-output:
+    runs-on: ubuntu-latest
+    outputs:
+      map-output: map-output-value
+      output-defined-in-step: ${{ steps.step1.outputs.output-defined-in-step }}
+      output-defined-in-step-variable: ${{ steps.step2.outputs.output-defined-in-step-variable }}
+    steps:
+      - run: echo "::set-output name=output-defined-in-step::output-defined-in-step-value"
+        id: step1
+      - run: echo "output-defined-in-step-variable=output-defined-in-step-variable-value" >> $GITHUB_OUTPUT
+        id: step2
+  read-output:
+    runs-on: ubuntu-latest
+    needs: create-output
+    steps:
+      - run: echo "map-output = ${{ needs.create-output.outputs.map-output }}"
+      - run: echo "output defined in step = ${{ needs.create-output.outputs.output-defined-in-step }}"
+      - run: echo "output defined in step variable = ${{ needs.create-output.outputs.output-defined-in-step-variable }}"
