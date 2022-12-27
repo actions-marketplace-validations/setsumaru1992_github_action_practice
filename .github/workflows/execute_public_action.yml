@@ -1,0 +1,8 @@
+name: Execute Public Action
+on: workflow_dispatch
+jobs:
+  Execute-Public-Action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./

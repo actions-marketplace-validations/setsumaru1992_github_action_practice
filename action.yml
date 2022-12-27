@@ -1,0 +1,9 @@
+name: setsumaru1992_github_action_practice
+description: setsumaru1992_github_action_practice
+runs:
+  using: "composite"
+  steps:
+    - run: echo "execute public action"
+      shell: bash
+    - uses: actions/checkout@v3
+    - run: git log --oneline
